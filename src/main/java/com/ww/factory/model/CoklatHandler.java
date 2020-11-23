@@ -10,7 +10,6 @@ public class CoklatHandler {
     static final String DB_PASSWORD = "aaaaaaab";
 
     Connection conn;
-    // Statement stmt;
 
     public CoklatHandler() {
         initialize();
@@ -59,17 +58,41 @@ public class CoklatHandler {
         return coklats;
     } 
 
+    public void debug(Coklat coklat) {
+        System.out.println(coklat.getNama());
+        System.out.println(coklat.getJumlah());
+        System.out.println(coklat.getID());
+    }
+
+    public void debug(ArrayList<ResepBahan> resepBahan) {
+        for (int i = 0; i < resepBahan.size(); i++) {
+            System.out.println(i);
+            System.out.println(resepBahan.get(i).getNama());
+            System.out.println(resepBahan.get(i).getJumlah());
+        }
+    }
+
     public boolean addNewCoklat(Coklat coklat, ArrayList<ResepBahan> resepBahan) {
 
-        int idCoklat = coklat.getID();
         int countCoklatAdded = 0;
         int countResepAdded = 0;
 
         try {
             Statement stmt1 = conn.createStatement();
-            String query = String.format("INSERT INTO coklat VALUES (%d, '%s', %d)", coklat.getID(), coklat.getNama(), coklat.getJumlah());
-            System.out.println(query);
-            countCoklatAdded = stmt1.executeUpdate(query);
+            String query1 = String.format("INSERT INTO coklat (namacoklat, jumlah) VALUES ('%s', %d)", coklat.getNama(), coklat.getJumlah());
+            countCoklatAdded = stmt1.executeUpdate(query1);
+
+            //getIDCoklat for resep query
+            Statement stmt4 = conn.createStatement();
+            String query4 = String.format("SELECT idcoklat FROM coklat WHERE namacoklat = '%s'", coklat.getNama());
+            ResultSet resultSet1 = stmt4.executeQuery(query4);
+            int idCoklat = -1;
+            if (resultSet1.next()) {
+                idCoklat = resultSet1.getInt("idcoklat");
+            }
+            if (idCoklat == -1) {
+                return false;
+            }
 
             try {
                 for (int i = 0; i < resepBahan.size(); i++) {

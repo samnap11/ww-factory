@@ -1,7 +1,7 @@
-com\ww\factory\model\Coklat.class
-com\ww\factory\service\impl\CoklatServiceImpl.class
-com\ww\factory\model\CoklatHandler.class
-com\ww\factory\model\TopNews.class
 com\ww\factory\service\impl\HelloWorldServiceImpl.class
 com\ww\factory\model\ResepBahan.class
+com\ww\factory\model\Coklat.class
+com\ww\factory\service\impl\CoklatServiceImpl.class
 com\ww\factory\app\ServerApp.class
+com\ww\factory\model\CoklatHandler.class
+com\ww\factory\model\TopNews.class
