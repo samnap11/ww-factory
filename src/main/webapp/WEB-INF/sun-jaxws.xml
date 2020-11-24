@@ -7,4 +7,7 @@
     <endpoint name="CoklatServiceImpl"
         implementation="com.ww.factory.service.impl.CoklatServiceImpl"
         url-pattern="/coklat" />
+    <endpoint name="RequestServiceImpl"
+        implementation="com.ww.factory.service.impl.RequestServiceImpl"
+        url-pattern="/request" />
 </endpoints>
