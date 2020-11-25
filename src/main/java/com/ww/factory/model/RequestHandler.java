@@ -111,9 +111,13 @@ public class RequestHandler {
 
     public boolean updateRequestStatus(Request req) {
         try {
-            String query = String.format("UPDATE requeststock SET status='in delivery' WHERE idrequeststock=%d", req.getIdRequest());            
+            String query = String.format("UPDATE requeststock SET status='delivered' WHERE idrequeststock=%d", req.getIdRequest());            
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(query);
+            
+            String query2 = String.format("UPDATE coklat SET jumlah = jumlah - %d WHERE idcoklat=%d", req.getJumlah(), req.getIdCoklat());
+            Statement stmt2 = conn.createStatement();
+            stmt2.executeUpdate(query2);
             System.out.println("success!");
             return true;
         } catch (Exception e) {
