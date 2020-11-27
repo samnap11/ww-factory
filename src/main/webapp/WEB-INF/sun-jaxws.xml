@@ -10,4 +10,7 @@
     <endpoint name="RequestServiceImpl"
         implementation="com.ww.factory.service.impl.RequestServiceImpl"
         url-pattern="/request" />
+    <endpoint name="BahanServiceImpl"
+        implementation="com.ww.factory.service.impl.BahanServiceImpl"
+        url-pattern="/bahan" />
 </endpoints>
