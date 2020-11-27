@@ -7,7 +7,7 @@ public class CoklatHandler {
     static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory";
     static final String DB_USERNAME = "root";
-    static final String DB_PASSWORD = "aaaaaaab";
+    static final String DB_PASSWORD = "fullbuster11";
 
     Connection conn;
 
