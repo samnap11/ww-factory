@@ -13,4 +13,7 @@
     <endpoint name="BahanServiceImpl"
         implementation="com.ww.factory.service.impl.BahanServiceImpl"
         url-pattern="/bahan" />
+    <endpoint name="SaldoServiceImpl" 
+        implementation="com.ww.factory.service.impl.SaldoServiceImpl" 
+        url-pattern="/saldo" />
 </endpoints>

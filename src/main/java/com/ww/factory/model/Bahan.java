@@ -5,13 +5,13 @@ import java.util.*;
 public class Bahan {
     private String nama;
     private int jumlah;
-    private String tanggalKadaluarsa;
+    private Date tanggalKadaluarsa;
 
     public Bahan() {
 
     };
 
-    public Bahan(String _nama, int _jumlah, String _tanggalKadaluarsa) {
+    public Bahan(String _nama, int _jumlah, Date _tanggalKadaluarsa) {
         this.nama = _nama;
         this.jumlah = _jumlah;
         this.tanggalKadaluarsa = _tanggalKadaluarsa;
@@ -25,7 +25,7 @@ public class Bahan {
         return this.jumlah;
     }
 
-    public String getTanggalKadaluarsa() {
+    public Date getTanggalKadaluarsa() {
         return this.tanggalKadaluarsa;
     }
 
@@ -37,7 +37,7 @@ public class Bahan {
         this.jumlah = _jumlah;
     }
 
-    public void setTanggalKadaluarsa(String _tanggalKadaluarsa) {
+    public void setTanggalKadaluarsa(Date _tanggalKadaluarsa) {
         this.tanggalKadaluarsa = _tanggalKadaluarsa;
     }
 }
