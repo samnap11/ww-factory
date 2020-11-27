@@ -21,4 +21,9 @@ public class BahanServiceImpl {
         return new BahanHandler().addBahan(nama, jumlah, tanggalKadaluarsa);
     }
 
+    @WebMethod
+    public boolean addStockBahan(@WebParam(name = "nama") String nama, @WebParam(name = "jumlah") int jumlahTambahan) {
+        return new BahanHandler().addStockBahan(nama, jumlahTambahan);
+    }
+
 }

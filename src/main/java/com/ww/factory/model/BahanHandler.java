@@ -107,4 +107,36 @@ public class BahanHandler {
         }
     }
 
+    public boolean addStockBahan(String nama, int jumlahTambahan) {
+        boolean updated = false;
+        PreparedStatement stmt = null;
+        String query = "UPDATE bahan SET jumlah = jumlah + ? WHERE idbahan = (SELECT idbahan FROM (SELECT * FROM bahan) AS b WHERE b.namabahan = ?)";
+
+        try {
+            stmt = conn.prepareStatement(query);
+            stmt.setInt(1, jumlahTambahan);
+            stmt.setString(2, nama);
+
+            int updatedInt = stmt.executeUpdate();
+
+            if (updatedInt == 1) {
+                updated = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+            return updated;
+        }
+    }
 }
