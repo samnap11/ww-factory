@@ -1,9 +1,10 @@
-package com.ww.factory.model;
+package com.ww.factory.handler;
 
 import java.sql.*;
 import java.util.*;
 
 import static com.ww.factory.DBConfig.*;
+import com.ww.factory.model.*;
 
 public class CoklatHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";

@@ -5,9 +5,9 @@ import java.util.*;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
-import javax.jws.HandlerChain;
  
-import com.ww.factory.model.*;
+import com.ww.factory.model.Request;
+import com.ww.factory.handler.RequestHandler;
 
 @WebService
 public class RequestServiceImpl {

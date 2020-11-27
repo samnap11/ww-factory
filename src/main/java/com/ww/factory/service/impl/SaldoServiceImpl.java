@@ -1,7 +1,7 @@
 package com.ww.factory.service.impl;
 
 import com.ww.factory.model.Saldo;
-import com.ww.factory.model.SaldoHandler;
+import com.ww.factory.handler.SaldoHandler;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

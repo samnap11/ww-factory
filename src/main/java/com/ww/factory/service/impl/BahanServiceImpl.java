@@ -6,7 +6,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import com.ww.factory.model.*;
+import com.ww.factory.model.Bahan;
+import com.ww.factory.handler.BahanHandler;
 
 @WebService
 public class BahanServiceImpl {
