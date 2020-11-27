@@ -14,14 +14,14 @@ public class ResepBahan {
         this.jumlahBahan = _jumlahBahan;
     }
 
-    public void setNama(String _namaBahan) {
+    public void setNamaBahan(String _namaBahan) {
         this.namaBahan = _namaBahan;
     }
 
-    public void setJumlah(int _jumlahBahan) {
+    public void setJumlahBahan(int _jumlahBahan) {
         this.jumlahBahan = _jumlahBahan;
     }
 
-    public String getNama()   { return this.namaBahan; }
-    public int getJumlah() { return this.jumlahBahan; }
+    public String getNamaBahan()   { return this.namaBahan; }
+    public int getJumlahBahan() { return this.jumlahBahan; }
 }
