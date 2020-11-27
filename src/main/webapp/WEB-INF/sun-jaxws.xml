@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints
+    xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint name="HelloWorldServiceImpl"
+        implementation="com.ww.factory.service.impl.HelloWorldServiceImpl"
+        url-pattern="/helloWS" />
+    <endpoint name="CoklatServiceImpl"
+        implementation="com.ww.factory.service.impl.CoklatServiceImpl"
+        url-pattern="/coklat" />
+    <endpoint name="SaldoServiceImpl" implementation="com.ww.factory.service.impl.SaldoServiceImpl" url-pattern="/saldo" />
+    <endpoint name="BahanServiceImpl" implementation="com.ww.factory.service.impl.BahanServiceImpl" url-pattern="/bahan" />
+</endpoints>
