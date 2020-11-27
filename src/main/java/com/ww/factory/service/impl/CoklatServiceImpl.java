@@ -10,7 +10,6 @@ import javax.jws.HandlerChain;
 import com.ww.factory.model.*;
  
 @WebService
-// @HandlerChain(file = "handler-chain.xml")
 public class CoklatServiceImpl {
  
     @WebMethod
