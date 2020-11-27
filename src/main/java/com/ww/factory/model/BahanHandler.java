@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class BahanHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=UTC";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=Asia/Jakarta";
     static final String DB_USERNAME = "root";
     static final String DB_PASSWORD = "fullbuster11";
 

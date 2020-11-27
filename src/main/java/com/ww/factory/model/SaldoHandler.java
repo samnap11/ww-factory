@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class SaldoHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=UTC";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=Asia/Jakarta";
     static final String DB_USERNAME = "root";
     static final String DB_PASSWORD = "fullbuster11";
     private Connection conn = null;
