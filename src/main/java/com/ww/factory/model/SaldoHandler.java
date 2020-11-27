@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SaldoHandler {
-    static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory";
+    static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=UTC";
     static final String DB_USERNAME = "root";
     static final String DB_PASSWORD = "fullbuster11";
     private Connection conn = null;
@@ -58,7 +58,7 @@ public class SaldoHandler {
     }
 
     public int getCurrentSaldo() {
-        Saldo saldo = null;
+        Saldo saldo = new Saldo();
         Statement stmt = null;
         String query = "SELECT * FROM saldo ORDER BY saldo_timestamp DESC LIMIT 1";
         ResultSet rs = null;
@@ -105,12 +105,11 @@ public class SaldoHandler {
             stmt.setInt(2, newSaldo.getSaldo());
             stmt.setTimestamp(3, newSaldo.getTimestamp());
 
-            stmt.execute();
+            int insertedInt = stmt.executeUpdate();
 
-            inserted = true;
-
-            stmt.close();
-            conn.close();
+            if (insertedInt > 0) {
+                inserted = true;
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {

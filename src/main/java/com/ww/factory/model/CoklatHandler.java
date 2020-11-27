@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.*;
 
 public class CoklatHandler {
-    static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory";
+    static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=UTC";
     static final String DB_USERNAME = "root";
     static final String DB_PASSWORD = "fullbuster11";
 
