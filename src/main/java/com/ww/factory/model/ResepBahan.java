@@ -2,7 +2,6 @@ package com.ww.factory.model;
 
 import javax.xml.bind.annotation.*;
 
-@XmlType(propOrder={"namaBahan", "jumlahBahan"})
 public class ResepBahan {
     private String namaBahan;
     private int jumlahBahan;
