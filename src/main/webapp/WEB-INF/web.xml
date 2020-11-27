@@ -9,27 +9,56 @@
             com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
     </listener>
      
+    <!-- <servlet>
+        <servlet-name>WSFactory</servlet-name>
+        <servlet-class>com.ww.factory.servlet.WSFactoryServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WSFactory</servlet-name>
+        <url-pattern>/bahan</url-pattern>
+    </servlet-mapping> -->
+
     <servlet>
-        <servlet-name>JAXWSServlet</servlet-name>
+        <servlet-name>JAXWS</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>JAXWSServlet</servlet-name>
+        <servlet-name>JAXWS</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>100</session-timeout>
     </session-config>
 
+    
     <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+        <init-param>
+            <param-name>cors.allowed.origins</param-name>
+            <param-value>*</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.allowed.methods</param-name>
+            <param-value>GET,POST,HEAD,OPTIONS,PUT,DELETE,PATCH</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- <filter>
         <filter-name>CORS</filter-name>
         <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>CORS</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
 
     <!-- <filter>
         <filter-name>cross-origin</filter-name>

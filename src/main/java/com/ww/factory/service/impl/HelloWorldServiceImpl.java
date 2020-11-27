@@ -8,7 +8,7 @@ import javax.jws.HandlerChain;
 import com.ww.factory.model.TopNews;
  
 @WebService
-@HandlerChain(file = "handler-chain.xml")
+// @HandlerChain(file = "handler-chain.xml")
 public class HelloWorldServiceImpl {
  
     @WebMethod
