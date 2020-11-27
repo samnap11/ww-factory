@@ -3,11 +3,13 @@ package com.ww.factory.model;
 import java.sql.*;
 import java.util.*;
 
+import static com.ww.factory.DBConfig.*;
+
 public class CoklatHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=Asia/Jakarta";
-    static final String DB_USERNAME = "root";
-    static final String DB_PASSWORD = "fullbuster11";
+    static final String DB_URL = URL;
+    static final String DB_USERNAME = USERNAME;
+    static final String DB_PASSWORD = PASSWORD;
 
     Connection conn;
 
@@ -82,8 +84,8 @@ public class CoklatHandler {
 
             try {
                 for (int i = 0; i < resepBahan.size(); i++) {
-                    String namaBahan = resepBahan.get(i).getNama();
-                    int jumlahBahan = resepBahan.get(i).getJumlah();
+                    String namaBahan = resepBahan.get(i).getNamaBahan();
+                    int jumlahBahan = resepBahan.get(i).getJumlahBahan();
     
                     System.out.println("bahan: " + namaBahan);
                     System.out.println(jumlahBahan);

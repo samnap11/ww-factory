@@ -6,11 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
 
+import static com.ww.factory.DBConfig.*;
+
 public class BahanHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/ws_factory?serverTimezone=Asia/Jakarta";
-    static final String DB_USERNAME = "root";
-    static final String DB_PASSWORD = "fullbuster11";
+    static final String DB_URL = URL;
+    static final String DB_USERNAME = USERNAME;
+    static final String DB_PASSWORD = PASSWORD;
 
     Connection conn;
 
