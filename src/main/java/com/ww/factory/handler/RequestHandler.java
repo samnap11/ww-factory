@@ -7,7 +7,7 @@ import static com.ww.factory.DBConfig.*;
 import com.ww.factory.model.*;
 
 public class RequestHandler {
-    static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = URL;
     static final String DB_USERNAME = USERNAME;
     static final String DB_PASSWORD = PASSWORD;
