@@ -32,7 +32,7 @@ public class BahanHandler {
     public ArrayList<Bahan> getAllBahanInFactory() {
 
         ArrayList<Bahan> bahans = new ArrayList<Bahan>();
-
+        
         try {
             String query = "SELECT * FROM bahan";
             Statement stmt = conn.createStatement();

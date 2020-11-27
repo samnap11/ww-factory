@@ -56,20 +56,6 @@ public class CoklatHandler {
         }
 
         return coklats;
-    } 
-
-    public void debug(Coklat coklat) {
-        System.out.println(coklat.getNama());
-        System.out.println(coklat.getJumlah());
-        System.out.println(coklat.getID());
-    }
-
-    public void debug(ArrayList<ResepBahan> resepBahan) {
-        for (int i = 0; i < resepBahan.size(); i++) {
-            System.out.println(i);
-            System.out.println(resepBahan.get(i).getNama());
-            System.out.println(resepBahan.get(i).getJumlah());
-        }
     }
 
     public boolean addNewCoklat(Coklat coklat, ArrayList<ResepBahan> resepBahan) {

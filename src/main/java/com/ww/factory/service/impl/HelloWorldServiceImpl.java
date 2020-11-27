@@ -3,6 +3,7 @@ package com.ww.factory.service.impl;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.jws.HandlerChain;
  
 import com.ww.factory.model.TopNews;
  
