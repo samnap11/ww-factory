@@ -6,7 +6,7 @@ import java.util.*;
 import static com.ww.factory.DBConfig.*;
 
 public class RequestHandler {
-    static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = URL;
     static final String DB_USERNAME = USERNAME;
     static final String DB_PASSWORD = PASSWORD;
@@ -29,7 +29,7 @@ public class RequestHandler {
     }
 
     public ArrayList<Request> getAllRequest() {
-        ArrayList<Request> requests = new ArrayList<Request>();    
+        ArrayList<Request> requests = new ArrayList<Request>();
         
         try {
             String query = "SELECT * FROM requeststock WHERE status='pending'";
