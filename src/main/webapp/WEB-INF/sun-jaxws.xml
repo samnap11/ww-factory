@@ -13,4 +13,5 @@
     <endpoint name="SaldoServiceImpl" 
         implementation="com.ww.factory.service.impl.SaldoServiceImpl" 
         url-pattern="/saldo" />
+    <endpoint name="UserServiceImpl" implementation="com.ww.factory.service.impl.UserServiceImpl" url-pattern="/user" />
 </endpoints>
