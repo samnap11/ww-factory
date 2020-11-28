@@ -30,7 +30,7 @@ public class RequestHandler {
     }
 
     public ArrayList<Request> getAllRequest() {
-        ArrayList<Request> requests = new ArrayList<Request>();    
+        ArrayList<Request> requests = new ArrayList<Request>();
         
         try {
             String query = "SELECT * FROM requeststock WHERE status='pending'";

@@ -5,3 +5,4 @@ target/
 .classpath
 .project
 *.iml
+src/main/java/com/ww/factory/DBConfig.java
