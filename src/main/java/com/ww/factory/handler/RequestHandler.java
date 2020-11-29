@@ -114,6 +114,14 @@ public class RequestHandler {
 
     public boolean updateRequestStatus(Request req) {
         try {
+            String query3 = String.format("SELECT jumlah FROM coklat WHERE idcoklat=%d", req.getIdCoklat());
+            Statement stmt3 = conn.createStatement();
+            ResultSet resultSet = stmt3.executeQuery(query3);
+            while(resultSet.next()) {
+                if (resultSet.getInt("jumlah") < req.getJumlah()) {
+                    return false;
+                }
+            }
             String query = String.format("UPDATE requeststock SET status='delivered' WHERE idrequeststock=%d", req.getIdRequest());            
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(query);
