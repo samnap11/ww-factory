@@ -97,7 +97,7 @@ public class SaldoHandler {
     }
 
     public boolean addSaldo(int newSaldoInt) {
-        Saldo newSaldo = new Saldo(newSaldoInt);
+        Saldo newSaldo = new Saldo(newSaldoInt + getCurrentSaldo());
         PreparedStatement stmt = null;
         String query = "INSERT INTO saldo VALUES (?, ?, ?)";
         boolean inserted = false;
