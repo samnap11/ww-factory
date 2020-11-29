@@ -1,6 +1,6 @@
 package com.ww.factory.service.impl;
 
-import com.ww.factory.model.UserHandler;
+import com.ww.factory.handler.UserHandler;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

@@ -1,10 +1,11 @@
-package com.ww.factory.model;
+package com.ww.factory.handler;
 
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 
 import static com.ww.factory.DBConfig.*;
+import com.ww.factory.model.*;
 
 public class UserHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
