@@ -253,4 +253,41 @@ public class CoklatHandler {
             return bahanCukup;
         }
     }
+
+    public ArrayList<ResepBahan> getResepBahan(int idcoklat) {
+        
+        ArrayList<ResepBahan> bahans = new ArrayList<ResepBahan>();
+
+        try {
+            String query1 = String.format("SELECT * FROM resep WHERE idcoklat = %d", idcoklat);
+            Statement stmt1 = conn.createStatement();
+            ResultSet resultSet1 = stmt1.executeQuery(query1);
+            while (resultSet1.next()) {
+                int idBahan = resultSet1.getInt("idbahan");
+                int jumlahBahan = resultSet1.getInt("jumlahbahan");
+                String query2 = String.format("SELECT * FROM bahan WHERE idbahan = %d", idBahan);
+                Statement stmt2 = conn.createStatement();
+                ResultSet resultSet2 = stmt2.executeQuery(query2);
+                while (resultSet2.next()) {
+                    String namaBahan = resultSet2.getString("namabahan");
+                    bahans.add(new ResepBahan(namaBahan, jumlahBahan));
+                    break;
+                }
+                resultSet2.close();
+            }
+            resultSet1.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error fetching from database");
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+
+                }
+            }
+            return bahans;
+        }
+    }
 }

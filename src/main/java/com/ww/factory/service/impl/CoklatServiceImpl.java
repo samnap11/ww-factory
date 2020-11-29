@@ -28,5 +28,10 @@ public class CoklatServiceImpl {
     public boolean addStockCoklat(Request req) {
         return new CoklatHandler().addStockCoklat(req);
     }
+
+    @WebMethod
+    public ArrayList<ResepBahan> getResepBahan(int idcoklat) {
+        return new CoklatHandler().getResepBahan(idcoklat);
+    }
  
 }
