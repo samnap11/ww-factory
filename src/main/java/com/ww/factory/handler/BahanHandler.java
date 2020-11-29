@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.Date;
 
 import static com.ww.factory.DBConfig.*;
-import com.ww.factory.model.*;
+import com.ww.factory.model.Bahan;
 
 public class BahanHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
