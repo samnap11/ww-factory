@@ -1,9 +1,10 @@
-package com.ww.factory.model;
+package com.ww.factory.handler;
 
 import java.sql.*;
 import java.util.*;
 
 import static com.ww.factory.DBConfig.*;
+import com.ww.factory.model.*;
 
 public class CoklatHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -62,6 +63,7 @@ public class CoklatHandler {
 
     public boolean addNewCoklat(Coklat coklat, ArrayList<ResepBahan> resepBahan) {
 
+        boolean inserted = false;
         int countCoklatAdded = 0;
         int countResepAdded = 0;
 
@@ -71,15 +73,15 @@ public class CoklatHandler {
             countCoklatAdded = stmt1.executeUpdate(query1);
 
             //getIDCoklat for resep query
-            Statement stmt4 = conn.createStatement();
-            String query4 = String.format("SELECT idcoklat FROM coklat WHERE namacoklat = '%s'", coklat.getNama());
-            ResultSet resultSet1 = stmt4.executeQuery(query4);
+            Statement stmt2 = conn.createStatement();
+            String query2 = String.format("SELECT idcoklat FROM coklat WHERE namacoklat = '%s'", coklat.getNama());
+            ResultSet resultSet2 = stmt2.executeQuery(query2);
             int idCoklat = -1;
-            if (resultSet1.next()) {
-                idCoklat = resultSet1.getInt("idcoklat");
+            if (resultSet2.next()) {
+                idCoklat = resultSet2.getInt("idcoklat");
             }
             if (idCoklat == -1) {
-                return false;
+                inserted = false;
             }
 
             try {
@@ -91,17 +93,17 @@ public class CoklatHandler {
                     System.out.println(jumlahBahan);
     
                     try {
-                        Statement stmt2 = conn.createStatement();
+                        Statement stmt3 = conn.createStatement();
                         String queryGetBahanID = String.format("SELECT * FROM bahan WHERE namabahan = '%s' AND tanggalkadaluarsa > NOW() ORDER BY tanggalkadaluarsa LIMIT 1", namaBahan);
-                        ResultSet resultSet = stmt2.executeQuery(queryGetBahanID);
-                        while (resultSet.next()) {
-                            int idBahan = resultSet.getInt("idbahan");
+                        ResultSet resultSet3 = stmt3.executeQuery(queryGetBahanID);
+                        while (resultSet3.next()) {
+                            int idBahan = resultSet3.getInt("idbahan");
                             String queryInsertResep = String.format("INSERT INTO resep VALUES (%d, %d, %d)", idCoklat, idBahan, jumlahBahan);
-                            Statement stmt3 = conn.createStatement();
-                            countResepAdded += stmt3.executeUpdate(queryInsertResep);
-                            stmt3.close();
+                            Statement stmt4 = conn.createStatement();
+                            countResepAdded += stmt4.executeUpdate(queryInsertResep);
+                            stmt4.close();
                         }
-                        stmt2.close();
+                        stmt3.close();
                     } catch (Exception e) {
                         e.printStackTrace();
                         System.out.println("Error in database!");
@@ -110,27 +112,27 @@ public class CoklatHandler {
                 }
     
                 if (countCoklatAdded == 1 && resepBahan.size() == countResepAdded) {
-                    return true;
+                    inserted = true;
                 } else {
-                    return false;
+                    inserted = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Error in database!");
-                return false;
+                inserted = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Error in database!");
-            return false;
+            inserted = false;
         } finally {
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (Exception e) {
-
+                     e.printStackTrace();
                 }
             }
+            return inserted;
         }
     }
 }
