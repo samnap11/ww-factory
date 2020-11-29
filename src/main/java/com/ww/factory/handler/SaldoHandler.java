@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import static com.ww.factory.DBConfig.*;
-import com.ww.factory.model.*;
+import com.ww.factory.model.Saldo;
 
 public class SaldoHandler {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";

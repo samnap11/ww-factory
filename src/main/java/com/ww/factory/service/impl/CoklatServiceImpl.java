@@ -8,6 +8,7 @@ import javax.jws.WebService;
  
 import com.ww.factory.model.Coklat;
 import com.ww.factory.model.ResepBahan;
+import com.ww.factory.model.Request;
 import com.ww.factory.handler.CoklatHandler;
  
 @WebService
@@ -21,6 +22,11 @@ public class CoklatServiceImpl {
     @WebMethod
     public boolean addNewCoklat(Coklat coklat, ArrayList<ResepBahan> resepBahan) {
         return new CoklatHandler().addNewCoklat(coklat, resepBahan);
+    }
+
+    @WebMethod
+    public boolean addStockCoklat(Request req) {
+        return new CoklatHandler().addStockCoklat(req);
     }
  
 }
